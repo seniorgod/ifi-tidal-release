@@ -1,0 +1,11 @@
+[Unit]
+Description=iFi Streamer Tidal Connect Service
+[Service]
+Restart=on-failure
+ExecStart=/usr/ifi/ifi-tidal-release/play
+User=root
+Group=root
+RestartSec=1
+KillMode=control-group
+[Install]
+WantedBy=multi-user.target

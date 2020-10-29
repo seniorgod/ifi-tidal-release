@@ -1,0 +1,6 @@
+device#0=rockchip-spdif: - (hw:0,0)
+device#1=iFi Pro iDSD: USB Audio (hw:1,0)
+device#2=sysdefault
+device#3=default
+device#4=dmix
+Number of devices = 5

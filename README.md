@@ -41,8 +41,10 @@ the binaries rely on the presence of some required libraries:
      apt-get install libflac++6v5*
 
 # download the repository 
-download the needed files from ifi-audio (or from this repo)
+The install steps later on expects the downloaded files in a directory called /usr/ifi.
 
+    mkdir /usr/ifi
+    cd /usr/ifi
     git clone https://github.com/ifi-audio/ifi-tidal-release.git
 
 # adjust the systemd service description
@@ -79,7 +81,7 @@ What you have to do is to change the playback-device. The implementation relies 
 
 In order to get a list of your devices run a binary included in the downloaded repo. 
 
-    cd $REPO 
+    cd /usr/ifi
 
 run: 
 
@@ -154,12 +156,12 @@ You get an output like this, from which you have to read the "name" of the DAC d
     device#6=default
     Number of devices = 7
 
-The devices which are present at the computer are located at the end of the list. Copy the whole name and insert it as playback_device in the service description.
+The devices which are present at the computer are located at the end of the list. In the example above devices are listed from device#0 till device#6. Copy the whole name of the device you want to use and insert it as playback_device in the service description of systemd (see above).
 
 # copy everything to the final directories
 Therefore run the deploy command which is included in the repo. 
 
-    cd $REPO 
+    cd /usr/ifi
     ./ifi-tidal-release/file-deploy.sh 
 
 # start the tidal connect client 

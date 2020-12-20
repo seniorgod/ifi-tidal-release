@@ -1,4 +1,4 @@
-# tidal connect client based on ppy2/ifi-tidal-release
+# tidal connect service raspberry/ARM based on ppy2/ifi-tidal-release
 
 I found that repository called ifi-tidal-release here on github, created by ppy2. Included are some binaries and some scripts. The names of the binaries intended that this is a tidal connect client. Because the lack of any description i downloaded the repo and play around with the included stuff.
 

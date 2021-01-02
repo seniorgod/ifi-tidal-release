@@ -45,7 +45,7 @@ The install steps later on expects the downloaded files in a directory called /u
 
     mkdir /usr/ifi
     cd /usr/ifi
-    git clone https://github.com/ifi-audio/ifi-tidal-release.git
+    git clone https://github.com/seniorgod/ifi-tidal-release
 
 # adjust the systemd service description
 the service description must be adapted to fit your needs. This means (more or less) to change the DAC device to that which is connected to your system

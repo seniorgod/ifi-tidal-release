@@ -48,7 +48,7 @@ The install steps later on expects the downloaded files in a directory called /u
     git clone https://github.com/seniorgod/ifi-tidal-release
 
 # adjust the systemd service description
-the service description must be adapted to fit your needs. This means (more or less) to change the DAC device to that which is connected to your system
+the service description located in /usr/ifi/ifi-streamer-tidal-connect.service must be adapted to fit your needs. This means (more or less) to change the DAC device to that which is connected to your system
 
 the systemd service description i use look like these: 
 

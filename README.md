@@ -77,15 +77,16 @@ the systemd service description i use look like these:
     [Install]
     WantedBy=multi-user.target*
 
-What you have to do is to change the playback-device. The implementation relies on portaudio. It exist an application in the repo, that list the DAC connected at your computer. You have to copy the devices you want to use as playback-device. As you can see. My DAC, means my playback-device is a PROJECT Audio RS DAC. 
+What you have to do is to change the playback-device. The implementation relies on portaudio. It exist an application inside the repo, that list all audio devices connected to your computer. You have to copy the devices you want to use as playback-device to the config. 
+As you can see. My DAC, means my playback-device is a PROJECT Audio RS DAC connected at (hw:1,0). 
 
-In order to get a list of your devices run a binary included in the downloaded repo. 
+In order to get a list of your devices run a commnand included in the downloaded repo. 
 
     cd /usr/ifi
 
 run: 
 
-    ifi-tidal-release/pa_devs/bin/run.sh
+    ifi-tidal-release/pa_devs/run.sh
 
 You get an output like this, from which you have to read the "name" of the DAC device you wish to use. While you are doing this the connected DAC must be plugged in and switched on.
 
@@ -147,6 +148,9 @@ You get an output like this, from which you have to read the "name" of the DAC d
     jack server is not running or cannot be started
     JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
     JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+
+The run command creates a file called devices inside the directory /usr/ifi/ifi-tidal-release/pa_devs. The content looks like this: 
+    
     device#0=atm7059_link: - (hw:0,0)
     device#1=atm7059_link: - (hw:0,1)
     device#2=atm7059_link: - (hw:0,2)
@@ -156,10 +160,10 @@ You get an output like this, from which you have to read the "name" of the DAC d
     device#6=default
     Number of devices = 7
 
-The devices which are present at the computer are located at the end of the list. In the example above devices are listed from device#0 till device#6. Copy the whole name of the device you want to use and insert it as playback_device in the service description of systemd (see above).
+In the example above devices are listed from device#0 till device#6. Copy the whole name of the device you want to use and insert it as playback_device in the service description of systemd (see above).
 
 # copy everything to the final directories
-Therefore run the deploy command which is included in the repo. 
+In order to copy everything to the final destination run the deploy command which is included in the repo. 
 
     cd /usr/ifi
     ./ifi-tidal-release/file-deploy.sh 
@@ -172,3 +176,7 @@ Therefore run the deploy command which is included in the repo.
 Check the status
 
     systemctl status ifi-streamer-tidal-connect.service
+    
+ if you want to start the tidal-connect-service automatically run 
+ 
+     systemctl enable ifi-streamer-tidal-connect.service

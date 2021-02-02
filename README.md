@@ -47,11 +47,13 @@ the binaries rely on the presence of some required libraries:
   go to /etc/apt
   add following line in sources.list:  
   *deb https://deb.debian.org/debian/ stretch main contrib non-free*
-  *deb https://deb.debian.org/debian/ stretch-updates main contrib non-free*
-  *deb http://security.debian.org/debian-security stretch/updates main contrib non-free* 
   
-  then install libavfromat57 and libcurl3 
-  If you need libcurl4 you are in trouble because libcurl3 deinstall libcurl4 
+  *deb https://deb.debian.org/debian/ stretch-updates main contrib non-free*
+  
+  *deb http://security.debian.org/debian-security stretch/updates main contrib non-free*
+  
+  Then install libavfromat57 and libcurl3.
+  If you need libcurl4 you are in trouble because libcurl3 deinstall libcurl4. 
   
   ### libavformat57 
      

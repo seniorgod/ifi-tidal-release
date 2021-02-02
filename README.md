@@ -2,13 +2,15 @@
 
 I found that repository called ifi-tidal-release here on github, created by ppy2. Included are some binaries and some scripts. The names of the binaries intended that this is a tidal connect client. Because the lack of any description i downloaded the repo and play around with the included stuff.
 
-I downloaded the git repos to my DietPi based arm-singleboard-computer. It turns out, that the binaries runs on ARMv7 on raspbian (perhaps on any LINUX version on ARM). All what you need to setup a tidal connect client 
+I downloaded the git repos to m< arm-singleboard-computer. I use a (audio optimized) arm singleboard name sparky from allo.com based on a minimal debian system called DietPi (https://github.com/MichaIng/DietPi). It turns out, that the binaries runs on ARMv7 on debian stretch and (more difficult to set up) on debian buster (perhaps on any LINUX version on ARM). There are several binaries included in the repo. You do not need all binaries and all scripts for a tidal connect client. 
 
-There are some binaries included in the repo. You do not need all binaries and all scripts for a tidal connect client. 
+Below you find the description to get that tidal connect client running for Debian stretch and Debian buster on ARM. 
+The description ist written initially for stretch. Because buster lacks some older libraries there is more to do to get the tidal connect client running on buster.
+The only difference therefore is to load more "older" libraries which ar not present by default in Debian buster. 
 
 These are the basic steps to create your tidal connect client:
 
-1. install required shared libraries
+1. install required shared libraries 
 2. download the repository
 3. adjust the systemd service description
 4. copy everything to the final directories
@@ -39,6 +41,26 @@ the binaries rely on the presence of some required libraries:
   run:
   
      apt-get install libflac++6v5*
+     
+  ## more shared libraries for debian buster 
+  In order to install the required libraries not present in buster you have to add the repositories for stretch in sources.list
+  go to /etc/apt
+  add following line in sources.list:  
+  *deb https://deb.debian.org/debian/ stretch main contrib non-free*
+  *deb https://deb.debian.org/debian/ stretch-updates main contrib non-free*
+  *deb http://security.debian.org/debian-security stretch/updates main contrib non-free* 
+  
+  then install libavfromat57 and libcurl3 
+  If you need libcurl4 you are in trouble because libcurl3 deinstall libcurl4 
+  
+  ### libavformat57 
+     
+    apt-get install libavformat57
+    
+  ### libcurl3
+  
+    apt-get install libcurl3
+  
 
 # download the repository 
 The install steps later on expects the downloaded files in a directory called /usr/ifi.

@@ -5,7 +5,7 @@ Restart=on-failure
 ExecStart=/usr/ifi/ifi-tidal-release/bin/tidal_connect_application \
 				--tc-certificate-path "/usr/ifi/ifi-tidal-release/id_certificate/IfiAudio_ZenStream.dat" \
 				--netif-for-deviceid eth0 \
-				-f "DietPi stream to project“ \
+				-f "DietPi stream to project" \
 				--codec-mpegh true \
 				--codec-mqa false \
 				--model-name "DietPi Streamer" \

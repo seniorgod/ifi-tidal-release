@@ -53,7 +53,6 @@ the binaries rely on the presence of some required libraries:
   *deb http://security.debian.org/debian-security stretch/updates main contrib non-free*
   
   Then install libavfromat57 and libcurl3.
-  If you need libcurl4 you are in trouble because libcurl3 deinstall libcurl4. 
   
   ### libavformat57 
      
@@ -62,7 +61,13 @@ the binaries rely on the presence of some required libraries:
   ### libcurl3
   
     apt-get install libcurl3
-  
+
+  If a package on your system already uses libcurl4, the easiest solution is to install `curl34` from https://launchpad.net/~xapienz/+archive/ubuntu/curl34:
+    
+    add-apt-repository ppa:xapienz/curl34
+    apt-get update
+    apt-get upgrade
+
 
 # download the repository 
 The install steps later on expects the downloaded files in a directory called /usr/ifi.

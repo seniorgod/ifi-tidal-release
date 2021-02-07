@@ -53,7 +53,6 @@ the binaries rely on the presence of some required libraries:
   *deb http://security.debian.org/debian-security stretch/updates main contrib non-free*
   
   Then install libavfromat57 and libcurl3.
-  If you need libcurl4 you are in trouble because libcurl3 deinstall libcurl4. 
   
   ### libavformat57 
      
@@ -62,7 +61,13 @@ the binaries rely on the presence of some required libraries:
   ### libcurl3
   
     apt-get install libcurl3
-  
+
+  If a package on your system already uses libcurl4, the easiest solution is to install `curl34` from https://launchpad.net/~xapienz/+archive/ubuntu/curl34:
+    
+    add-apt-repository ppa:xapienz/curl34
+    apt-get update
+    apt-get upgrade
+
 
 # download the repository 
 The install steps later on expects the downloaded files in a directory called /usr/ifi.
@@ -72,7 +77,11 @@ The install steps later on expects the downloaded files in a directory called /u
     git clone https://github.com/seniorgod/ifi-tidal-release
 
 # adjust the systemd service description
-the service description located in /usr/ifi/ifi-streamer-tidal-connect.service must be adapted to fit your needs. This means (more or less) to change the DAC device to that which is connected to your system
+the service description located in /usr/ifi/ifi-streamer-tidal-connect.service must be adapted to fit your needs. This means (more or less) to change the DAC device to that which is connected to your system.
+
+First create a copy of the sample service file, and edit your version:
+    cp /usr/ifi/ifi-tidal-release/ifi-streamer-tidal-connect.service /usr/ifi/ifi-streamer-tidal-connect.service
+    vim /usr/ifi/ifi-streamer-tidal-connect.service
 
 the systemd service description i use look like these: 
 
@@ -84,7 +93,7 @@ the systemd service description i use look like these:
     ExecStart=/usr/ifi/ifi-tidal-release/bin/tidal_connect_application \
 				--tc-certificate-path "/usr/ifi/ifi-tidal-release/id_certificate/IfiAudio_ZenStream.dat" \
 				--netif-for-deviceid eth0 \
-				-f "DietPi stream to project“ \
+				-f "DietPi stream to project" \
 				--codec-mpegh true \
 				--codec-mqa false \
 				--model-name "DietPi Streamer" \

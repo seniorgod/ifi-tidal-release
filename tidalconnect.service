@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone='no'?><!--*-nxml-*-->
+<!DOCTYPE service-group SYSTEM "avahi-service.dtd">
+
+<service-group>
+
+  <name replace-wildcards="yes">tidal on %h-00e39f05aea430f501a368c55e1b8eff</name>
+
+  <service>
+    <type>_tidalconnect._tcp</type>
+    <port>2019</port>
+    <txt-record>mn=abacus aroio</txt-record>
+    <txt-record>ca=0</txt-record>
+    <txt-record>id=00e39f05aea430f501a368c55e1b8eff</txt-record>
+    <txt-record>fn=Tidal stream to abacus</txt-record>
+    <txt-record>ve=1</txt-record>
+  </service>
+
+</service-group>

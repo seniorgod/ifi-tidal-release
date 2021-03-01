@@ -8,6 +8,10 @@ Below you find the description to get that tidal connect client running for Debi
 The description ist written initially for stretch. Because buster lacks some older libraries there is more to do to get the tidal connect client running on buster.
 The only difference therefore is to load more "older" libraries which ar not present by default in Debian buster. 
 
+If you are not comfortable with installing old libs on your SBC, you can create the tidal-connect-application inside a docker container, like described here: https://github.com/seniorgod/ifi-tidal-release/blob/master/tidal_connect_application_as_docker_container/ifi_docker.md
+
+Let' start with installing tidal-connect-application on your SBC directly without docker:
+
 These are the basic steps to create your tidal connect client:
 
 1. install required shared libraries 
